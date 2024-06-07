@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-Shopping Website</title>
+    <style>
+        *{
+            margin: 0%;
+            padding: 0%;
+        }
+        #welcome{
+            width: 100vw;
+            height: 90vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-image: url(background.png);
+            background-repeat: no-repeat;
+            background-size: 100%;
+            background-attachment: fixed;
+        }
+        #logo{
+            width: 20vw;
+        }
+        #title{
+            font-size: 8vw;
+            font-weight: bolder;
+            color: white;
+        }
+         #options
+        {
+            width: 100vw;
+            height: 10vh;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;            
+        }
+        .user{
+            width: 15vw;
+            height: 5vh;
+            background-color: rgba(255, 127, 80, 0.488);
+            border-radius: 2vw;
+            font-size: large;
+            font-weight: bolder;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+    <div id="welcome">
+    <center>
+        <div>
+            <img id="logo" src="cart.png" alt="Cart Image">
+        </div>
+        <div>
+            <h1 id="title">Welcome To E-Shopping Website</h1>
+        </div>
+    </center>
+    </div>
+    <div id="options">
+        <div>
+       		<form action="customerpage">
+            	<input class="user" type="submit" value="Registration/Login" >
+        	</form>
+    </div>
+</body>
+</html>

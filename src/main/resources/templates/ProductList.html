@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product List</title>
+    <style>
+        *{
+            margin: 0%;
+            padding: 0%;
+        }
+        body{
+            background-image: url(background.png);
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        #title{
+            margin: 3vh;
+            font-size: 10vh;
+            font-weight: bolder;
+            color: white;                                                   
+        }
+        u{
+            color: white;
+        }
+        #pagename{            
+            margin: 0.5vh;
+            font-size: 6vh;
+            font-weight: bolder;
+            color: white; 
+        }
+        #productbody{
+            width: 100vw;
+            height: 65vh;
+        }
+        th,td,tr{
+            border: 0.5vh solid white;
+            padding: 1vh;
+            font-weight: bolder;
+            text-align:center;
+            background-color: rgba(255, 255, 255, 0.823);            
+        }
+        .heading{
+            font-size:3vh;
+        }
+        .data{
+        font-size:2.5vh;
+       	}
+        .input{
+            border: 0.5vh solid white;
+            background-color: rgba(255, 255, 255, 0.523);
+            border-radius: 0.2vh;
+            font-weight:bolder;
+        }
+        #filter{
+            margin-top: 1vh;
+            margin-bottom: 0.5vh;
+        }
+        .filter{
+            height: 4vh;
+            border-radius: 2vh;
+            font-size: 2vh;
+            font-weight: bolder;
+            text-align: center;
+            border: none;
+        }
+        #text{
+            width: 20vw;           
+        }
+        #submit{
+            width: 5vw;
+        }
+        #link{
+            position:absolute;
+            right: 5vw;
+            top: 5vh;
+        }
+    </style>
+</head>
+<body>
+    <center>
+    <form id="link" action="customeroptions">
+            <input class="input" type="submit" value="CustomerOptions">
+        </form>
+    <u><h1 id="title">E-Shopping WebSite</h1></u>
+        <h2 id="pagename">Product List</h2><br>        
+        <h2 id="pagename" th:text="${customername}"></h2><br>
+        <div id="productbody">
+            <form id="filter" action="filterproduct">
+                <input id="text" class="filter" name="data" placeholder="Filter By Product, Price, Name, Category">
+                <input id="submit" class="filter" type="submit" value="filter">
+            </form><br>
+            <table>
+                <tr>
+                    <th class="heading">Product Id</th>
+                    <th class="heading">Name</th>
+                    <th class="heading">Brand</th>
+                    <th class="heading">Price</th>
+                    <th class="heading">Category</th>
+                    <th class="heading">Expiry Date</th>
+                    <th class="heading">Review</th>
+                    <th class="heading" colspan="2">Add To Cart / Buy</th>
+                </tr>
+                <tr th:each="product:${productlist}">
+                    <td class="data" th:text="${product.productid}"></td>
+                    <td class="data" th:text="${product.productname}"></td>
+                    <td class="data" th:text="${product.productbrand}"></td>
+                    <td class="data" th:text="${product.productprice}"></td>
+                    <td class="data" th:text="${product.productcategory}"></td>                    
+                    <td class="data" th:text="${product.productexpirydate}"></td>
+                    <td class="data" th:text="${product.productreview}"></td>
+                    <td class="data">
+                        <form action="addtocart">
+                            <input class="input" th:value="${product.productid}" name="productid" hidden>
+                            <input class="input" type="submit" value="Add To Cart">
+                        </form>
+                    </td>
+                    <td class="data">
+                        <form action="productbuyproduct">
+                            <input class="input" th:value="${product.productid}" name="productid" hidden >
+                            <input class="input" type="submit" value="Buy Product">
+                        </form>
+                    </td>
+                </tr>
+            </table>
+            <h2 id="pagename" th:text="${msg}"></h2><br>
+        </div>
+    </center>
+</body>
+</html>

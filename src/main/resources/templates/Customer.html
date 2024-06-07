@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CustomerPage</title>
+    <style>
+        *{
+            margin: 0%;
+            padding: 0%;
+        }
+        body{
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            background-image: url(background.png);
+            background-size: 100%;
+            background-attachment: fixed;
+        }
+        #title{
+            margin: 3vh;
+            font-size: 10vh;
+            font-weight: bolder;
+            color: white;                                                   
+        }
+        u{
+            color: white;
+        }
+        #pagename{            
+            margin: 2vh;
+            font-size: 7vh;
+            font-weight: bolder;
+            color: white; 
+        }
+        #registrationpage,#loginpage{
+            width:40vw;
+            height: 78vh;
+            float: left;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        form{
+            padding: 5vh;
+            border: 1vh white solid;
+            border-radius: 3vh;
+        }
+        .input{
+            width:15vw ;
+            height: 4vh;
+            margin: 2vh;
+            border-radius: 2vh;
+            font-size: 2vh;
+            font-weight: bolder;
+            text-align: center;
+            border: none;
+        }
+        .input:hover{
+            transform: scale(1.3);
+        }
+        </style>
+</head>
+<body>
+    <center>  
+      <u><h1 id="title">E-Shopping WebSite</h1></u>
+        <div id="registrationpage">
+        <h2 id="pagename">Customer <br> Registration</h2><br>
+            <form action="customerregistration">
+                	<input class="input" type="text" placeholder="Enter Your Name" name="customername">
+                <br><input class="input" type="email" placeholder="Enter Your EmailId" name="customeremailid">
+                <br><input class="input" type="password" placeholder="Enter Password" name="customerpassword">
+                <br><input class="input" type="password" placeholder="Re-Enter Password" name="customerrepassword">
+                <br><input class="input" type="text" placeholder="Enter Your Address" name="customeraddress">
+                <br><input class="input" type="tel" maxlength="10" minlength="10" placeholder="Enter Mobile Number"  name="customermobilenumber">
+                <br><input class="input" type="text" placeholder="Enter Your Gender" name="customergender">
+                <br><input class="input" type="submit" value="Register">
+            </form>
+        </div>
+        
+        <div id="loginpage">
+            <h2 id="pagename">Customer <br> Login</h2><br>
+            <form action="customerlogin">
+                    <input class="input" type="email" placeholder="Enter Your EmailId" name="customeremailid">
+                <br><input class="input" type="password" placeholder="Enter Your Password" name="customerpassword">
+                <br><input class="input" type="submit" value="Login">
+            </form>
+        </div>
+            <h2 id="pagename" th:text="${msg}"></h2><br>
+        
+    </center>
+</body>
+</html>

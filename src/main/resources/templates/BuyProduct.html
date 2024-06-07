@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase List</title>
+    <style>
+        *{
+            margin: 0%;
+            padding: 0%;
+        }
+        body{
+            background-image: url(background.png);
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        #title{
+            margin: 3vh;
+            font-size: 10vh;
+            font-weight: bolder;
+            color: white;                                                   
+        }
+        u{
+            color: white;
+        }
+        #pagename{            
+            margin: 2vh;
+            font-size: 7vh;
+            font-weight: bolder;
+            color: white; 
+        }
+        #purchasebody{
+            width: 100vw;
+            height: 65vh;
+        }
+    
+        .input{
+            text-align: center;
+            width: 12vw;
+            height: 5vh;
+            margin: 0.5vh;
+            border: 0.5vh solid white;
+            background-color: rgba(255, 255, 255, 0.823);
+            border-radius: 0.5vh;
+            font-weight: bolder;
+        }
+       #name{
+        width: 15vw;
+        display: inline;
+        font-weight: bolder;
+        font-size: 4vh;
+       }
+   </style>
+</head>
+<body>
+    <center>
+    <u><h1 id="title">E-Shopping WebSite</h1></u>
+        <h2 id="pagename">Buy Product</h2><br>        
+        <h2 id="pagename" th:text="${customername}"></h2><br>
+        <div id="buyproductbody">
+            <form action="addtopurchase">
+                <br><pre id="name">Customer Id   </pre><input name="customerid" class="input" type="text" th:value="${customerid}">
+                <br><pre id="name">Product Name  </pre><input name="productname" class="input" type="text" th:value="${productname}">
+                <br><pre id="name">Product Price </pre><input name="productprice" class="input" type="text" th:value="${productprice}">
+                <br><pre id="name">Quantity      </pre><input name="quantity" class="input" type="text" placeholder="Enter Quantity" oninput="totalprice()">
+                <br><pre id="name">Total Price   </pre><input name="amountpaid" class="input" type="text" placeholder="Total Price">
+                <br><input class="input" type="submit">
+            </form>            
+            <h2 id="pagename" class="msg" th:text="${msg}"></h2><br>
+        </div>
+    </center>
+    <script>
+        
+        function totalprice()
+        {
+            var price = document.getElementsByClassName("input")[2].value
+            var quantity = document.getElementsByClassName("input")[3].value
+            var totalprice =Number(price)*Number(quantity);
+            document.getElementsByClassName("input")[4].value=parseFloat(totalprice).toFixed(2);
+        }
+    </script>
+</body>
+</html>

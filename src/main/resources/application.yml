@@ -1,0 +1,16 @@
+#Configration for application.yml 
+#data base property 
+spring:
+  datasource:
+      url: jdbc:mysql://localhost:3306/shopping_app?createDatabaseIfNotExist=true
+      username: root
+      password: 12345
+      driver-class-name: com.mysql.cj.jdbc.Driver
+
+# For Table creation 
+  jpa:
+    hibernate:
+      ddl-auto: update
+    #it will display query on the console
+    show-sql: true   
+

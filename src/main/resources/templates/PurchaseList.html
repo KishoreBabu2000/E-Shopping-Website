@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Purchase List</title>
+    <style>
+        *{
+            margin: 0%;
+            padding: 0%;
+        }
+        body{
+            background-image: url(background.png);
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        #title{
+            margin: 3vh;
+            font-size: 10vh;
+            font-weight: bolder;
+            color: white;                                                   
+        }
+        u{
+            color: white;
+        }
+        #pagename{            
+            margin: 2vh;
+            font-size: 7vh;
+            font-weight: bolder;
+            color: white; 
+        }
+        #purchasebody{
+            width: 100vw;
+            height: 65vh;
+        }
+        th,td,tr{
+            border: 0.5vh solid white;
+            padding: 1vh;
+            font-weight: bolder;
+            text-align:center;
+            background-color: rgba(255, 255, 255, 0.823);            
+        }
+        .heading{
+            font-size:3vh;
+        }
+        .data{
+        font-size:2.5vh;
+       	}
+        .input{
+            border: 0.5vh solid white;
+            background-color: rgba(255, 255, 255, 0.823);
+            border-radius: 0.2vh;
+            font-weight: bolder;
+        }
+        #link{
+            position: absolute;
+            right: 5vw;
+            top: 5vh;
+        }
+   </style>
+</head>
+<body>
+    <center>
+        <form id="link" action="customeroptions">
+            <input class="input" type="submit" value="CustomerOptions">
+        </form>
+    <u><h1 id="title">E-Shopping WebSite</h1></u>
+        <h2 id="pagename">Purchase List</h2><br>        
+        <h2 id="pagename" th:text="${customername}"></h2><br>
+        <div id="purchasebody">
+           
+            <table>
+                <tr>
+                    <th class="heading">Purchase Id</th>
+                    <th class="heading">Customer Id</th>
+                    <th class="heading">Product Name</th>
+                    <th class="heading">Price</th>
+                    <th class="heading">Quantity</th>
+                    <th class="heading">Amount Paid</th>
+                </tr>
+                <tr th:each="purchase:${purchaselist}">
+                    <td class="data" th:text="${purchase.purchaseid}"></td>
+                    <td class="data" th:text="${purchase.customerid}"></td>
+                    <td class="data" th:text="${purchase.productname}"></td>
+                    <td class="data" th:text="${purchase.productprice}"></td>
+                    <td class="data" th:text="${purchase.quantity}"></td>
+                    <td class="data" th:text="${purchase.amountpaid}"></td>
+                </tr>
+            </table>    
+            <h2 id="pagename" th:text="${msg}"></h2><br>
+        </div>
+    </center>
+</body>
+</html>

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Options</title>
+    <style>
+        * {
+            margin: 0%;
+            padding: 0%;
+        }
+        body{
+            background-image: url(background.png);
+            background-size: 100%;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+        }
+        #title{
+            margin: 3vh;
+            font-size: 10vh;
+            font-weight: bolder;
+            color: white;                                                   
+        }
+        #divbody {
+            width: 100vw;
+            height: 65vh;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+        }
+        u{
+            color: white;
+        }
+        #pagename{            
+            margin: 2vh;
+            font-size: 7vh;
+            font-weight: bolder;
+            color: white; 
+        }
+        #customerdetails{
+            width: 40vw;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        #customer
+        {
+            margin: 2vh;
+            font-size: 5vh;
+            font-weight: bolder;
+            color: white; 
+        }
+        #cart{
+            width: 30vw;
+        }
+        .options{
+            margin: 2vh;
+            padding: 5vh;
+            border: 1vh white solid;
+            border-radius: 3vh;
+            background-color: rgba(255, 255, 255, 0.66);
+        }
+        .input{
+            width:10vw ;
+            border-radius: 3vh;
+            font-size: 3vh;
+            font-weight: bolder;
+            text-align: center;
+            border: none;
+            background: none;
+        }
+        .details,.input:hover{
+            transform: scale(1.3);
+        }
+        #details
+        {
+            margin: 2vh;
+            padding: 5vh;
+            border: 1vh white solid;
+            border-radius: 3vh;
+        }
+        .details{
+            width:15vw ;
+            height: 4vh;
+            margin: 2vh;
+            border-radius: 2vh;
+            font-size: 2vh;
+            font-weight: bolder;
+            text-align: center;
+            border: none;
+        }
+    </style>
+</head>
+
+<body>
+    <center>
+        <u><h1 id="title">E-Shopping WebSite</h1></u>        
+        <h2 id="pagename">Customer Options</h2><br>
+        <div id="divbody">
+        <div id="customerdetails">
+            <form id="details" action="">        
+                <h3 id="customer">Customer Details</h3><br>
+                <input class="details" type="button" name="customer" th:value="${customername}"><br>
+                <input class="details" type="button" name="customer" th:value="${customeremailid}"><br>
+                <input class="details" type="button" name="customer" th:value="${customermobilenumber}"><br>
+                <input class="details" type="button" name="customer" th:value="${customeraddress}"><br>
+                <input class="details" type="button" name="customer" th:value="${customergender}">
+            </form>
+        </div>
+        <div id="options">
+           <form class="options" action="productlist">
+            <input class="input" type="submit" value="ProductList">
+           </form>
+           <form class="options"  action="cartlist">
+            <input class="input" type="submit" value="CartList">
+           </form>
+           <form class="options"  action="getallpurchasedetails">
+            <input class="input" type="submit" value="My Orders">
+           </form>
+        </div>
+        </div>
+    </center>
+</body>
+
+</html>
